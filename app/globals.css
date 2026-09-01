@@ -38,3 +38,10 @@ nav>button{font-size:0}nav>button:after{content:'All products';font-size:13px}
 body{background:radial-gradient(circle at 0 28%,#dcecdf 0,transparent 26%),radial-gradient(circle at 100% 68%,#d4e9da 0,transparent 28%),#edf5ef}
 main{max-width:1760px;margin:0 auto;background:#fff;box-shadow:0 0 90px #174c2c24}
 @media(max-width:1760px){main{box-shadow:none}}
+
+/* Company story follows the catalog so it builds trust without interrupting shopping. */
+.about-oxarc{display:grid;grid-template-columns:.9fr 1.1fr;gap:58px;padding:64px max(4.2vw,44px);background:#102b1e;color:#fff;border-top:7px solid var(--lime)}
+.about-intro h2{font-size:38px;letter-spacing:-.04em;margin:8px 0 20px}.about-intro p{max-width:650px;color:#d8e3dc;font-size:15px;line-height:1.65;margin:0 0 13px}.about-oxarc .kicker{color:#b9da49}.about-actions{display:flex;align-items:center;gap:24px;margin-top:27px}.about-actions a{color:#fff;font-size:13px;font-weight:800;text-underline-offset:5px}.about-actions .about-primary{background:var(--green);padding:13px 18px;text-decoration:none;border:1px solid #43a06e}
+.about-capabilities{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #ffffff2b;border-left:1px solid #ffffff2b}.about-capabilities article{padding:20px;border-right:1px solid #ffffff2b;border-bottom:1px solid #ffffff2b;min-height:130px}.about-capabilities b{font-size:14px}.about-capabilities p{color:#bdcbc2;font-size:12px;line-height:1.5;margin:9px 0 0}.about-proof{grid-column:1/-1;padding:18px 20px;background:#ecf3e8;color:var(--ink);display:flex;justify-content:space-between;gap:20px}.about-proof strong{font-size:14px}.about-proof span{font-size:11px;color:#56655c;text-align:right}
+@media(max-width:900px){.about-oxarc{grid-template-columns:1fr;padding:50px 28px;gap:38px}}
+@media(max-width:560px){.about-capabilities{grid-template-columns:1fr}.about-proof{display:block}.about-proof span{display:block;text-align:left;margin-top:6px}.about-actions{align-items:flex-start;flex-direction:column;gap:15px}}
