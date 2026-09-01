@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://oxarc-industrial-supply.sites.openai.com'),
+  metadataBase: new URL('https://oxarc-industrial-supply.wade-stewart.chatgpt.site'),
   title: 'OXARC | Industrial Gases, Welding & Safety Supply',
   description: 'Shop industrial gases, welding equipment, tools and safety supplies from OXARC—your single-source supplier in the Inland and Pacific Northwest.',
   openGraph: {
