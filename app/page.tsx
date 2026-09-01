@@ -24,6 +24,33 @@ const products = [
   { id: 19, sku: '32-000200-0000', brand: 'Fendall', name: 'Porta Stream II 16-Gallon Portable Eyewash Station', type: 'Eyewash station', category: 'First aid', price: 389.00, badge: 'Facility safety', delivery: '5–7 business days', availability: 'Limited stock', image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=700&q=85' },
   { id: 20, sku: 'ICEMIX-SF', brand: 'THORZT', name: 'Sugar-Free Electrolyte Freeze Shots, Mixed Flavor Pack', type: 'Hydration', category: 'Heat stress', price: 42.40, badge: 'Seasonal', delivery: 'Ships today', availability: 'In stock', image: 'https://images.unsplash.com/photo-1606206873764-fd15e242df52?auto=format&fit=crop&w=700&q=85' },
 ];
+// Verified product photography keyed by catalog SKU. Keeping this separate makes it
+// difficult for a generic category photo to be paired with the wrong product again.
+const productImages: Record<string, string> = {
+  '1810': 'https://cdn11.bigcommerce.com/s-y180xghw1r/images/stencil/1280x1280/products/40726/57043/1810A__67209.1723570718.jpg?c=1',
+  '280-HP1491RV': 'https://flare.fullsource.com/images/items/b/raw/PIP-280-HP1491RVM-08-B.jpg',
+  '250-14-0520': 'https://empirerigging.com/media/catalog/product/b/o/bouton-250-14-0520.jpg?height=700&image-type=image&store=empire&width=700',
+  '16-381': 'https://us.pipglobal.com/archive/pim/1200/36/16-381-Industrial.jpg',
+  '5906': 'https://www.airgas.com/medias/CM-000000A852-Product-HON5906GY-1200Wx1200H?context=bWFzdGVyfHByb2R1Y3R8MzU1NTc1fGltYWdlL2pwZWd8cHJvZHVjdC9oNDcvaDcyLzExNTI5OTMyMzc0MDQ2LmpwZ3xkNGMxMTg0MWRmODNmNTU4ODE2ZmRjOTk4NjRiY2MzODA3ZmNlNThjZTNmY2M0ZDk3MmYwMWFkZWRmYWI2ODM3',
+  '267-HPF210C': 'https://flare.fullsource.com/images/items/b/raw/PIP-267-HPF210D-B.jpg',
+  '34-840': 'https://us.pipglobal.com/archive/pim/1200/36/34-840-Standard-Industrial.jpg',
+  '34-874': 'https://gpsgloves.com/cdn/shop/files/GP-34-874_2.png?v=1754508091',
+  '44-5745E': 'https://www.safetygloves.co.uk/user/products/large/maxicut-ultra-44-5745e-level-e-cut-resistant-palm-coated-grip-gloves-2026-2-web.jpg',
+  'S8510': 'https://www.magidglove.com/media/catalog/product/S/8/S8510_HERO.jpg?bg-color=255%2C255%2C255&fit=bounds&optimize=high',
+  'N10R': 'https://cdn11.bigcommerce.com/s-u3hf7jh4/images/stencil/1280x1280/products/738216/1110225/honeywell-north-zone-hard-hat-ratchet-cap-style-n10r010000-white__18635.1683551744.jpg?c=2',
+  '1485': 'https://flare.fullsource.com/images/items/b/raw/PIP-1485-B.jpg',
+  '3029': 'https://cdn11.bigcommerce.com/s-8dmsu240r2/images/stencil/1280x1280/products/1112/1972/3029__25560.1752951178.jpg?c=1&imbypass=on',
+  '7050': 'https://us.pipglobal.com/archive/pim/1200/6/7050-FRONT-2500x2500.jpg',
+  '5400W': 'https://distribuidoresidp.cl/cdn/shop/products/04-02-199-F1-1300.jpg?v=1686441220',
+  '7580P100': 'https://i0.wp.com/ppeo.com/wp-content/uploads/2023/07/Honeywell-North-7580P100.png?fit=600%2C600&ssl=1',
+  '272-RPRF8820': 'https://us.pipglobal.com/archive/pim/1200/11/272-RPRF8820---NC.jpg',
+  '630655-400': 'https://www.shoesensation.com/media/catalog/product/puma/puma-630655-conquestbrownctxhi-brown01.jpg?bg-color=255%2C255%2C255&fit=bounds&height=700&optimize=medium&width=700',
+};
+
+products.forEach(product => {
+  if (productImages[product.sku]) product.image = productImages[product.sku];
+});
+
 const categoryNav = ['Welding & Cutting', 'Industrial Gases', 'Safety & PPE', 'Tools & Abrasives', 'Fire Services'];
 
 export default function Home() {
@@ -56,7 +83,7 @@ export default function Home() {
   return <main>
     <div className="utility"><span>Serving the Inland & Pacific Northwest</span><span>Need help? <b>1-800-765-9055</b> · Find a branch</span></div>
     <header>
-      <div className="brand"><span className="brand-mark">OX</span><span>OXARC<small>Part of Meritus Gas Partners</small></span></div>
+      <div className="brand"><img className="oxarc-logo" src="/oxarc-logo.png" alt="OXARC"/><small>Part of Meritus Gas Partners</small></div>
       <div className="search-wrap"><label className="search"><span>⌕</span><input aria-label="Search products" value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search product, type, brand, model or part #"/><kbd>⌘ K</kbd></label>{suggestions.length>0&&<div className="suggestions"><b>PRODUCT SUGGESTIONS</b>{suggestions.map(p=><button key={p.id} onClick={()=>setQuery(p.sku)}><span>{p.name}<small>{p.brand} · Model {p.sku}</small></span><em>{p.delivery}</em></button>)}<button className="all-results">See all results for “{query}” →</button></div>}</div>
       <button className="account">◎ <span>Sign in<small>Account & pricing</small></span></button><button className="cart" onClick={()=>setCart(0)}>Cart <b>{cart}</b></button>
     </header>

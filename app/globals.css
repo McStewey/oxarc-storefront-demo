@@ -15,3 +15,11 @@
 /* Real photography keeps category navigation concrete and product-focused. */
 .category-grid button{grid-template-columns:78px 1fr;min-height:145px}.category-grid img{grid-row:1/3;width:78px;height:78px;object-fit:cover;background:#e8ede9}.category-grid button:hover img{filter:saturate(1.08)}
 @media(max-width:600px){.category-grid button{grid-template-columns:92px 1fr}.category-grid img{width:92px;height:78px}}
+
+/* Product shots should show the complete SKU, not a cropped lifestyle detail. */
+.product-image img{object-fit:contain;padding:18px;mix-blend-mode:multiply}
+
+/* Official OXARC identity supplied by the client. */
+.brand{flex-direction:column;align-items:flex-start;gap:2px}
+.brand .oxarc-logo{display:block;width:190px;height:54px;object-fit:contain;object-position:left center}
+.brand>small{padding-left:5px}
