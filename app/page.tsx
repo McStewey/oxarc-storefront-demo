@@ -50,7 +50,7 @@ const productImages: Record<string, string> = {
 };
 
 products.forEach(product => {
-  if (productImages[product.sku]) product.image = productImages[product.sku];
+  product.image = `./products/${product.sku}.jpg`;
 });
 
 const categoryNav = ['Welding & Cutting', 'Industrial Gases', 'Safety & PPE', 'Tools & Abrasives', 'Fire Services'];

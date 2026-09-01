@@ -33,3 +33,8 @@ nav>button{font-size:0}nav>button:after{content:'All products';font-size:13px}
 .filter-toggle{font-size:0}.filter-toggle:after{content:'Filters';font-size:12px}
 .product-image button{font-size:0}.product-image button:after{content:'Save';font-size:9px;font-weight:800;text-transform:uppercase}
 .rating{font-size:0}.rating span{font-size:11px}.rating span:before{content:'Rated '}
+
+/* Soft brand-colored perimeter keeps the storefront from floating in plain white. */
+body{background:radial-gradient(circle at 0 28%,#dcecdf 0,transparent 26%),radial-gradient(circle at 100% 68%,#d4e9da 0,transparent 28%),#edf5ef}
+main{max-width:1760px;margin:0 auto;background:#fff;box-shadow:0 0 90px #174c2c24}
+@media(max-width:1760px){main{box-shadow:none}}
