@@ -45,6 +45,8 @@ const productImages: Record<string, string> = {
   '7580P100': 'https://i0.wp.com/ppeo.com/wp-content/uploads/2023/07/Honeywell-North-7580P100.png?fit=600%2C600&ssl=1',
   '272-RPRF8820': 'https://us.pipglobal.com/archive/pim/1200/11/272-RPRF8820---NC.jpg',
   '630655-400': 'https://www.shoesensation.com/media/catalog/product/puma/puma-630655-conquestbrownctxhi-brown01.jpg?bg-color=255%2C255%2C255&fit=bounds&height=700&optimize=medium&width=700',
+  '32-000200-0000': 'https://cdn11.bigcommerce.com/s-sq9zkarfah/images/stencil/1280x1280/products/62625/136872/Honeywell-Fendall-Porta-Stream-II-16-Gallon-Portable-Eyewash-Station__79591.1690469877.jpg',
+  'ICEMIX-SF': 'https://flare.fullsource.com/images/items/a/raw/PIP-ICEMIX-SF-A1.jpg',
 };
 
 products.forEach(product => {
@@ -83,7 +85,7 @@ export default function Home() {
   return <main>
     <div className="utility"><span>Serving the Inland & Pacific Northwest</span><span>Need help? <b>1-800-765-9055</b> · Find a branch</span></div>
     <header>
-      <div className="brand"><img className="oxarc-logo" src="/oxarc-logo.png" alt="OXARC"/><small>Part of Meritus Gas Partners</small></div>
+      <div className="brand"><img className="oxarc-logo" src="./oxarc-logo.png" alt="OXARC"/><small>Part of Meritus Gas Partners</small></div>
       <div className="search-wrap"><label className="search"><span>⌕</span><input aria-label="Search products" value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search product, type, brand, model or part #"/><kbd>⌘ K</kbd></label>{suggestions.length>0&&<div className="suggestions"><b>PRODUCT SUGGESTIONS</b>{suggestions.map(p=><button key={p.id} onClick={()=>setQuery(p.sku)}><span>{p.name}<small>{p.brand} · Model {p.sku}</small></span><em>{p.delivery}</em></button>)}<button className="all-results">See all results for “{query}” →</button></div>}</div>
       <button className="account">◎ <span>Sign in<small>Account & pricing</small></span></button><button className="cart" onClick={()=>setCart(0)}>Cart <b>{cart}</b></button>
     </header>
